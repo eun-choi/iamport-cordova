@@ -22,20 +22,28 @@
 
   <!-- android -->
   <platform name="android">
-    <config-file parent="/*" target="res/xml/config.xml">
+    <config-file target="res/xml/config.xml" parent="/*">
       <feature name="IamportCordova">
         <param name="android-package" value="kr.iamport.cordova.IamportCordova" />
       </feature>
       <preference name="AndroidLaunchMode" value="singleInstance" />
       <allow-navigation href="*" /> <!-- cordova-plugin-whitelist 에 의해 chrome browser 새창열림 방지(ex. location.href = 'url') -->
     </config-file>
-    <config-file parent="application" target="AndroidManifest.xml">
+    <config-file target="AndroidManifest.xml" parent="application">
       <activity
         android:name="kr.iamport.cordova.IamportActivity"
         android:label="IamportActivity"
       >
       </activity>
     </config-file>
+            <config-file target="AndroidManifest.xml" parent="application/activity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="twinkplepay" />
+            </intent-filter>
+        </config-file>
     <source-file src="src/android/iamport_activity.xml" target-dir="res/layout" />
     <source-file src="src/android/iamport_actionbar.xml" target-dir="res/layout" />
     <source-file src="src/android/iamport_actionbar_actions.xml" target-dir="res/menu" />
@@ -78,18 +86,16 @@
     <source-file src="src/ios/IamportNiceViewController.m" />
     <source-file src="src/ios/IamportCertificationViewController.h" />
     <source-file src="src/ios/IamportCertificationViewController.m" />
-    <!-- <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+    <config-file target="*-Info.plist" parent="CFBundleURLTypes">
       <array>
         <dict>
-          <key>CFBundleURLName</key>
-          <string></string>
           <key>CFBundleURLSchemes</key>
           <array>
-            <string>$URL_SCHEME</string>
+            <string>twinkplepay</string>
           </array>
         </dict>
       </array>
-    </config-file> -->
+    </config-file>
     <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
       <array>
         <string>kftc-bankpay</string> <!-- 계좌이체 -->
