@@ -29,7 +29,7 @@
       <preference name="AndroidLaunchMode" value="singleInstance" />
       <allow-navigation href="*" /> <!-- cordova-plugin-whitelist 에 의해 chrome browser 새창열림 방지(ex. location.href = 'url') -->
     </config-file>
-    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+    <config-file parent="application" target="AndroidManifest.xml">
       <activity
         android:name="kr.iamport.cordova.IamportActivity"
         android:label="IamportActivity"
