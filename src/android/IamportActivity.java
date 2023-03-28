@@ -246,4 +246,9 @@ public class IamportActivity extends Activity {
         }
         return actionCloseItemId;
     }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 }
