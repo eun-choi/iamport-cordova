@@ -37,6 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (@available(iOS 13.0, *)) {
+        self.modalInPresentation = YES;
+    }
     
     NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"iamport-webview" ofType:@"html" inDirectory:@"www"];
     NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];

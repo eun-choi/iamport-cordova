@@ -248,7 +248,5 @@ public class IamportActivity extends Activity {
     }
 
     @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-    }
+    public void onBackPressed() {}
 }
